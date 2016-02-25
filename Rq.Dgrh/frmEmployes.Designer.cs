@@ -33,6 +33,8 @@
             this.txtSalaire = new System.Windows.Forms.TextBox();
             this.lstEmployes = new System.Windows.Forms.ListBox();
             this.btnAjoutEmploye = new System.Windows.Forms.Button();
+            this.btnAjouterEmployes = new System.Windows.Forms.Button();
+            this.btnMasseSalariale = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNom
@@ -64,7 +66,7 @@
             this.lstEmployes.FormattingEnabled = true;
             this.lstEmployes.Location = new System.Drawing.Point(183, 46);
             this.lstEmployes.Name = "lstEmployes";
-            this.lstEmployes.Size = new System.Drawing.Size(120, 95);
+            this.lstEmployes.Size = new System.Drawing.Size(152, 173);
             this.lstEmployes.TabIndex = 3;
             this.lstEmployes.DoubleClick += new System.EventHandler(this.lstEmployes_DoubleClick);
             // 
@@ -78,11 +80,33 @@
             this.btnAjoutEmploye.UseVisualStyleBackColor = true;
             this.btnAjoutEmploye.Click += new System.EventHandler(this.btnAjoutEmploye_Click);
             // 
+            // btnAjouterEmployes
+            // 
+            this.btnAjouterEmployes.Location = new System.Drawing.Point(52, 177);
+            this.btnAjouterEmployes.Name = "btnAjouterEmployes";
+            this.btnAjouterEmployes.Size = new System.Drawing.Size(100, 25);
+            this.btnAjouterEmployes.TabIndex = 5;
+            this.btnAjouterEmployes.Text = "Ajouter Employes";
+            this.btnAjouterEmployes.UseVisualStyleBackColor = true;
+            this.btnAjouterEmployes.Click += new System.EventHandler(this.btnAjouterEmployes_Click);
+            // 
+            // btnMasseSalariale
+            // 
+            this.btnMasseSalariale.Location = new System.Drawing.Point(183, 226);
+            this.btnMasseSalariale.Name = "btnMasseSalariale";
+            this.btnMasseSalariale.Size = new System.Drawing.Size(75, 23);
+            this.btnMasseSalariale.TabIndex = 6;
+            this.btnMasseSalariale.Text = "Calculer Masse Salariale";
+            this.btnMasseSalariale.UseVisualStyleBackColor = true;
+            this.btnMasseSalariale.Click += new System.EventHandler(this.btnMasseSalariale_Click);
+            // 
             // frmEmployes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 261);
+            this.Controls.Add(this.btnMasseSalariale);
+            this.Controls.Add(this.btnAjouterEmployes);
             this.Controls.Add(this.btnAjoutEmploye);
             this.Controls.Add(this.lstEmployes);
             this.Controls.Add(this.txtSalaire);
@@ -103,5 +127,7 @@
         private System.Windows.Forms.TextBox txtSalaire;
         private System.Windows.Forms.ListBox lstEmployes;
         private System.Windows.Forms.Button btnAjoutEmploye;
+        private System.Windows.Forms.Button btnAjouterEmployes;
+        private System.Windows.Forms.Button btnMasseSalariale;
     }
 }

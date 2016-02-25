@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,6 +59,38 @@ namespace Rq.Dgrh
         private void lstEmployes_DoubleClick(object sender, EventArgs e)
         {
             ((Employe)lstEmployes.SelectedItem).Afficher();
+        }
+
+        private void btnAjouterEmployes_Click(object sender, EventArgs e)
+        {
+            Employe emp1 = new Employe("Michael", new DateTime(2012, 01, 01), 95000);
+            Employe emp2 = new Employe("Jean-Marc", new DateTime(2012, 01, 01), 96000);
+            Employe emp3 = new Employe("Antouane", new DateTime(2012, 01, 01), 97000);
+            Employe emp4 = new Employe("Samuel", new DateTime(2012, 01, 01), 97000);
+            Employe emp5 = new Employe("Gabriel", new DateTime(2012, 01, 01), 98000);
+            Patron pat1 = new Patron("Marc", new DateTime(2015, 01, 01), 100000, 5001);
+
+            Employes.AddRange(new Employe[] {emp1,emp2,emp3,emp4,emp5,pat1});
+            rafraichir2();
+        }
+
+        private void btnMasseSalariale_Click(object sender, EventArgs e)
+        {
+            int total = 0;
+            foreach (Employe emp in Employes)
+            {
+                total += emp.Salaire ;
+                if (emp is Patron)
+                {
+                    total += ((Patron)emp).Bonus;
+                }
+                //Patron pat = emp as Patron;
+                //total += pat?.Bonus ?? 0;
+            }
+            MessageBox.Show(String.Format(
+                "La masse salariale de {0} est {1:c0}", 
+                Employe.NomCompagnie, total));
+
         }
     }
 }

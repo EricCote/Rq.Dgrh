@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web.UI.WebControls;
+using win=System.Windows.Forms;
+using web=System.Web.UI.WebControls;
 
 namespace Rq.Dgrh.LaZone
 {
@@ -11,6 +14,15 @@ namespace Rq.Dgrh.LaZone
     {
         #region Champs
         private int salaire;
+        #endregion
+
+        #region Static
+        public static string NomCompagnie { get; set; }
+
+        static Employe()
+        {
+            NomCompagnie = "Revenu Québec";
+        }
         #endregion
 
         #region Proprietes
@@ -44,10 +56,42 @@ namespace Rq.Dgrh.LaZone
         #endregion
 
         #region Methodes
-        public void Afficher()
+        public virtual void Afficher()
         {
-            MessageBox.Show(string.Format("{0} gagne {1:c}", Nom,Salaire));
+            MessageBox.Show(this.ToString());
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} gagne {1:c}",Nom,Salaire);
+        }
+
+
+
+
+
+
+        public void test()
+        {
+            int x=5, y ;
+            y = doubler( x);
+            MessageBox.Show(string.Format("{0} doublé est: {1}", x, y));
+
+        }
+
+        public double doubler(double n)
+        {
+            double result = n * 2;
+            return  result;
+        }
+
+        public int doubler(int n)
+        {
+            int result = n * 2;
+            return result;
+        }
+
+
         #endregion
 
     }
