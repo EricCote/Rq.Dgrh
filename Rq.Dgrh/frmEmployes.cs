@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -22,15 +23,12 @@ namespace Rq.Dgrh
         }
 
 
-
-
         private void btnAjoutEmploye_Click(object sender, EventArgs e)
         {
             Employe emp = new Employe(txtNom.Text, 
                                       DateTime.Parse(txtEmbauche.Text), 
                                       int.Parse(txtSalaire.Text));
             Employes.Add(emp);
-
             rafraichir2();
         }
 
@@ -58,8 +56,11 @@ namespace Rq.Dgrh
 
         private void lstEmployes_DoubleClick(object sender, EventArgs e)
         {
+   
             ((Employe)lstEmployes.SelectedItem).Afficher();
         }
+
+     
 
         private void btnAjouterEmployes_Click(object sender, EventArgs e)
         {
@@ -70,6 +71,13 @@ namespace Rq.Dgrh
             Employe emp5 = new Employe("Gabriel", new DateTime(2012, 01, 01), 98000);
             Patron pat1 = new Patron("Marc", new DateTime(2015, 01, 01), 100000, 5001);
 
+            emp1.Display += (msg) => MessageBox.Show(msg);
+            emp2.Display += (msg) => MessageBox.Show(msg);
+            emp3.Display += (msg) => MessageBox.Show(msg);
+            emp4.Display += (msg) => MessageBox.Show(msg);
+            emp5.Display += Console.WriteLine;
+            pat1.Display += (msg) => MessageBox.Show(msg);
+
             Employes.AddRange(new Employe[] {emp1,emp2,emp3,emp4,emp5,pat1});
             rafraichir2();
         }
@@ -78,7 +86,7 @@ namespace Rq.Dgrh
         {
             int total = 0;
             foreach (Employe emp in Employes)
-            {
+            {         
                 total += emp.Salaire ;
                 if (emp is Patron)
                 {
@@ -91,6 +99,17 @@ namespace Rq.Dgrh
                 "La masse salariale de {0} est {1:c0}", 
                 Employe.NomCompagnie, total));
 
+        }
+
+        private void btnBienPaye_Click(object sender, EventArgs e)
+        {
+            int nb = 98000;
+            foreach (Employe emp in Employes.
+                Where((emp) => emp.Salaire > nb ))
+            { MessageBox.Show(emp.Nom); }
+
+            //For Each emp as Employe in Employes.
+            //  Where(Function(emp1) emp1.Salaire > 98000))
         }
     }
 }

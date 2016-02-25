@@ -35,6 +35,7 @@
             this.btnAjoutEmploye = new System.Windows.Forms.Button();
             this.btnAjouterEmployes = new System.Windows.Forms.Button();
             this.btnMasseSalariale = new System.Windows.Forms.Button();
+            this.btnBienPaye = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNom
@@ -100,11 +101,22 @@
             this.btnMasseSalariale.UseVisualStyleBackColor = true;
             this.btnMasseSalariale.Click += new System.EventHandler(this.btnMasseSalariale_Click);
             // 
+            // btnBienPaye
+            // 
+            this.btnBienPaye.Location = new System.Drawing.Point(264, 225);
+            this.btnBienPaye.Name = "btnBienPaye";
+            this.btnBienPaye.Size = new System.Drawing.Size(75, 23);
+            this.btnBienPaye.TabIndex = 7;
+            this.btnBienPaye.Text = "Bien payé";
+            this.btnBienPaye.UseVisualStyleBackColor = true;
+            this.btnBienPaye.Click += new System.EventHandler(this.btnBienPaye_Click);
+            // 
             // frmEmployes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 261);
+            this.Controls.Add(this.btnBienPaye);
             this.Controls.Add(this.btnMasseSalariale);
             this.Controls.Add(this.btnAjouterEmployes);
             this.Controls.Add(this.btnAjoutEmploye);
@@ -129,5 +141,6 @@
         private System.Windows.Forms.Button btnAjoutEmploye;
         private System.Windows.Forms.Button btnAjouterEmployes;
         private System.Windows.Forms.Button btnMasseSalariale;
+        private System.Windows.Forms.Button btnBienPaye;
     }
 }

@@ -14,9 +14,12 @@ namespace Rq.Dgrh.LaZone
         //modification du code
         //deux techniques:  Override, member hiding
 
-        public override void  Afficher()
+        public override void Afficher()
         {
-            MessageBox.Show(this.ToString());
+            if (Display!=null)
+            { 
+                Display(this.ToString());
+            }
         }
 
         public override string ToString()

@@ -10,7 +10,10 @@ using web=System.Web.UI.WebControls;
 
 namespace Rq.Dgrh.LaZone
 {
-    public class Employe
+
+    public delegate void Affichage(string msg);
+
+    public partial class Employe
     {
         #region Champs
         private int salaire;
@@ -23,6 +26,10 @@ namespace Rq.Dgrh.LaZone
         {
             NomCompagnie = "Revenu Québec";
         }
+        #endregion
+
+        #region Delegates and events
+        public Affichage Display;
         #endregion
 
         #region Proprietes
@@ -58,7 +65,10 @@ namespace Rq.Dgrh.LaZone
         #region Methodes
         public virtual void Afficher()
         {
-            MessageBox.Show(this.ToString());
+            if (Display!=null)
+            { 
+                Display(this.ToString());
+            }
         }
 
         public override string ToString()
