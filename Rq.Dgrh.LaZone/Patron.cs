@@ -16,10 +16,7 @@ namespace Rq.Dgrh.LaZone
 
         public override void Afficher()
         {
-            if (Display!=null)
-            { 
-                Display(this.ToString());
-            }
+           OnDisplay(this.ToString());
         }
 
         public override string ToString()

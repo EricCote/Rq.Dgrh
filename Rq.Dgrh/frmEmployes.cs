@@ -56,8 +56,10 @@ namespace Rq.Dgrh
 
         private void lstEmployes_DoubleClick(object sender, EventArgs e)
         {
-   
-            ((Employe)lstEmployes.SelectedItem).Afficher();
+
+             ((Employe)lstEmployes.SelectedItem).Afficher();
+           
+
         }
 
      
@@ -72,6 +74,9 @@ namespace Rq.Dgrh
             Patron pat1 = new Patron("Marc", new DateTime(2015, 01, 01), 100000, 5001);
 
             emp1.Display += (msg) => MessageBox.Show(msg);
+            emp1.Display += (msg) => MessageBox.Show(msg);
+    
+
             emp2.Display += (msg) => MessageBox.Show(msg);
             emp3.Display += (msg) => MessageBox.Show(msg);
             emp4.Display += (msg) => MessageBox.Show(msg);
@@ -87,7 +92,7 @@ namespace Rq.Dgrh
             int total = 0;
             foreach (Employe emp in Employes)
             {         
-                total += emp.Salaire ;
+                total += emp.Salary ;
                 if (emp is Patron)
                 {
                     total += ((Patron)emp).Bonus;
@@ -105,7 +110,7 @@ namespace Rq.Dgrh
         {
             int nb = 98000;
             foreach (Employe emp in Employes.
-                Where((emp) => emp.Salaire > nb ))
+                Where((emp) => emp.Salary > nb ))
             { MessageBox.Show(emp.Nom); }
 
             //For Each emp as Employe in Employes.

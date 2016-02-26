@@ -5,15 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Web.UI.WebControls;
-using win=System.Windows.Forms;
-using web=System.Web.UI.WebControls;
+using win = System.Windows.Forms;
+using web = System.Web.UI.WebControls;
+using System.IO;
+using System.Drawing;
 
 namespace Rq.Dgrh.LaZone
 {
 
-    public delegate void Affichage(string msg);
+    //public delegate void Affichage(string msg);
 
-    public partial class Employe
+    public partial class Employe:IDisposable
     {
         #region Champs
         private int salaire;
@@ -28,15 +30,17 @@ namespace Rq.Dgrh.LaZone
         }
         #endregion
 
+        //Deux delegate generiques: Action et Func
         #region Delegates and events
-        public Affichage Display;
-        #endregion
+        public event Action<string> Display;
+        #endregion 
 
         #region Proprietes
+        public Bitmap Photo { get; set; }
         public string Nom { get; set; }
         public DateTime Embauche { get; set; }
 
-        public int Salaire
+        public int Salary
         {
             get { return salaire; }
             set
@@ -57,24 +61,50 @@ namespace Rq.Dgrh.LaZone
         {
             Nom = nom;
             Embauche = embauche;
-            Salaire = salaire;
+            Salary = salaire;
         }
 
         #endregion
 
         #region Methodes
-        public virtual void Afficher()
+
+        protected virtual void OnDisplay(string msg)
         {
-            if (Display!=null)
-            { 
-                Display(this.ToString());
+            if (Display != null)
+            {
+                Display(msg);
             }
+       
+        }
+        public void test555(int nombre)
+        {
+        }
+
+
+        public async virtual void Afficher()
+        {
+            List<Task> taches = new List<Task>();
+            taches.Add(Task.Delay(1000));
+            taches.Add(Task.Delay(1000));
+            taches.Add(Task.Delay(1000));
+            taches.Add(Task.Delay(1000));
+            taches.Add(Task.Delay(1000));
+            taches.Add(Task.Delay(1000));
+            taches.Add(Task.Delay(1000));
+            taches.Add(Task.Delay(1000));
+
+            await Task.WhenAll(taches);
+
+            OnDisplay(this.ToString());
+           
         }
 
         public override string ToString()
         {
-            return string.Format("{0} gagne {1:c}",Nom,Salaire);
+            return string.Format("{0} gagne {1:c}",Nom,Salary);
         }
+
+
 
 
 
@@ -100,6 +130,32 @@ namespace Rq.Dgrh.LaZone
             int result = n * 2;
             return result;
         }
+
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    Photo.Dispose();
+                }
+
+                Photo = null;
+                disposedValue = true;
+            }
+        }
+
+
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+        
+        }
+        #endregion
 
 
         #endregion

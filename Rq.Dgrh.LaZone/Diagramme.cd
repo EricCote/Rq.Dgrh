@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Rq.Dgrh.LaZone.Employe">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgCAAACCAACAEAAAAQQAgACAAAJAIAIAAAgAAAAA=</HashCode>
+      <FileName>Employe.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Rq.Dgrh.LaZone.Patron">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAQAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patron.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Console">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Rq.Dgrh.LaZone.Jean">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Jean.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.273" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
